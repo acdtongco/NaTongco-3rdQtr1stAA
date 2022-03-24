@@ -1,0 +1,30 @@
+body {
+  background-color: skyblue;
+}
+
+#messageheader {
+  font-size: 50px;
+}
+
+#message {
+  color: red;
+  font-size: 30px;
+}
+
+#result {
+  color: green;
+  font-size: 30px;
+}
+
+#leap {
+  color: green;
+  font-size: 30px;
+}
+
+#BDAY {
+  font-size: 30px;
+}
+
+button {
+  font-size: 30px;
+}

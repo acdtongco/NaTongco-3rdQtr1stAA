@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="style.css">
+  <title>3rd Qtr Week 3 Alternative Assessment</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<center>
+<h2 id="messageheader"> Calculate if my Birthday was a Leap Year </h2>
+<br>
+
+<input type=date id="BDAY">
+<button onclick="calcAgeNow();isLeapYear();"> Calculate Age </button>
+<span id="message"></span>
+<br><br>
+<h3 id="result"></h3>
+<h3 id="leap"></h3>
+
+</center>
+
+<script>
+
+// enter a birthday and find out how old the person is
+
+  function calcAgeNow(){
+
+    let userinput = document.getElementById("BDAY").value;
+    let bday = new Date(userinput);
+    if(userinput==null || userinput=='') {
+      document.getElementById("message").innerHTML = "Please choose a date please!";  
+      return false; 
+    } else {
+
+    //calculate month difference from current date in time  
+    let month_diff = Date.now() - bday.getTime();  
+    console.log("month_diff: " + month_diff + " = " + Date.now() + "-" + bday.getTime()) ;
+
+    //convert the calculated difference in date format  
+    let age_dt = new Date(month_diff);  
+    console.log("age_dt: "  + age_dt) ;
+
+      
+    //extract year from date      
+    let year = age_dt.getUTCFullYear();  
+    console.log("year: " + year)
+      
+    //now calculate the age of the user  
+    let age = Math.abs(year - 1970);  
+    console.log("age: " + age)
+  
+    //display the calculated age  
+    return document.getElementById("result").innerHTML =      "Your age is: " + age + " years. ";
+  }
+}
+
+  function isLeapYear() {
+    let userinput = document.getElementById("BDAY").value;
+    let bday = new Date(userinput);
+    if(userinput==null || userinput=='') {
+      document.getElementById("message").innerHTML = "***Please choose a date please!***";  
+      return false; 
+    } else {
+    let year = bday.getUTCFullYear();
+    console.log(year);
+    if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+        console.log(year + ' is a leap year');
+        return document.getElementById("leap").innerHTML =  year + " is a leap year. ";
+    } else {
+        console.log(year + ' is not a leap year');
+        return document.getElementById("leap").innerHTML =  year + " is not a leap year. ";
+    }
+  }
+}
+
+</script>
+</body>
+</html>
